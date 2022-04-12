@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Articles() {
   const [articleList, setArticleList] = useState([]);
@@ -44,7 +45,9 @@ export default function Articles() {
       <p style={{ color: 'red' }}>{loadingError}</p>
       <ul>
         {articleList.map((article) => (
-          <li key={article.id}>{article.title}</li>
+          <li key={article.id}>
+            <Link to={`/articles/${article.id}`}>{article.title}</Link>
+          </li>
         ))}
       </ul>
     </>
